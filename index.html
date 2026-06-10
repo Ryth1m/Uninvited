@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>uninvited archive</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .landing-wrap {
+      max-width: 620px;
+      padding: 0 28px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* typewriter */
+    .tw-block { margin-bottom: 52px; }
+
+    .tw-line {
+      display: block;
+      font-size: 15px;
+      line-height: 2.1;
+      color: var(--text);
+      min-height: 1.8em;
+      white-space: pre;
+    }
+
+    #cursor {
+      display: inline-block;
+      width: 9px;
+      height: 15px;
+      background: var(--teal);
+      vertical-align: middle;
+      margin-left: 1px;
+      animation: blink 1s step-end infinite;
+    }
+    #cursor.hidden { display: none; }
+
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    /* nav */
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      opacity: 0;
+      transition: opacity 2s ease;
+      pointer-events: none;
+    }
+    .nav-links.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav-links a {
+      color: var(--teal);
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+      width: fit-content;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .nav-links a:hover {
+      color: var(--teal-bright);
+      border-bottom-color: var(--teal-bright);
+    }
+    .nav-links a.locked {
+      color: var(--dim);
+      text-decoration: line-through;
+    }
+    .nav-links a.locked:hover { color: #888; border-bottom-color: transparent; }
+
+    @media (max-width: 520px) {
+      .landing-wrap { padding: 0 18px; }
+      .tw-line { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-wrap">
+    <div class="tw-block">
+      <span class="tw-line" id="l1"></span>
+      <span class="tw-line" id="l2"></span>
+      <span class="tw-line" id="l3"></span>
+      <span id="cursor"></span>
+    </div>
+    <nav class="nav-links" id="nav">
+      <a href="archive.html">→ archive</a>
+      <a href="members.html">→ members</a>
+      <a href="puzzle.html">→ puzzle</a>
+      <a href="locked.html" class="locked">→ [LOCKED]</a>
+    </nav>
+  </div>
+
+  <script>
+    const LINES = [
+      "this server was deleted on [DATE].",
+      "someone made a copy before it was gone.",
+      "you weren't supposed to find this either."
+    ];
+    const els = [
+      document.getElementById('l1'),
+      document.getElementById('l2'),
+      document.getElementById('l3')
+    ];
+    const cursor  = document.getElementById('cursor');
+    const nav     = document.getElementById('nav');
+
+    let li = 0, ci = 0;
+
+    function type() {
+      if (li >= LINES.length) {
+        cursor.classList.add('hidden');
+        setTimeout(() => nav.classList.add('visible'), 200);
+        return;
+      }
+      if (ci < LINES[li].length) {
+        els[li].textContent += LINES[li][ci++];
+        setTimeout(type, 38);
+      } else {
+        li++; ci = 0;
+        setTimeout(type, 440);
+      }
+    }
+
+    setTimeout(type, 700);
+  </script>
+</body>
+</html>

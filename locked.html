@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>— uninvited</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .locked-main {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .locked-sub {
+      font-size: 13px;
+      color: var(--dim);
+      margin-bottom: 36px;
+    }
+    .locked-hr {
+      border: none;
+      border-top: 1px solid #1E1E1E;
+      margin-bottom: 32px;
+    }
+    /* nearly invisible — visible when highlighted or screen brightness raised */
+    .ghost-text {
+      font-size: 13px;
+      color: #1C1C1C;
+      line-height: 2.3;
+      user-select: text;
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- intentionally no back link on this page -->
+    <p class="locked-main">this page is not ready yet.</p>
+    <p class="locked-sub">[check back after episode 11]</p>
+    <hr class="locked-hr">
+    <div class="ghost-text">
+      &gt; root__'s journal — recovered<br>
+      &gt; access: restricted<br>
+      &gt; decryption key: pending<br>
+      <br>
+      [this content will be unlocked when the key is found]
+    </div>
+  </div>
+</body>
+</html>

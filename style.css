@@ -1,0 +1,90 @@
+/* ── RESET ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── BASE ──────────────────────────────────────────────────────────── */
+:root {
+  --bg:          #0E0E0E;
+  --bg2:         #161616;
+  --bg3:         #1C1C1C;
+  --text:        #E8E8E8;
+  --soft:        #999999;
+  --dim:         #666666;
+  --ghost:       #212121;
+  --teal:        #2E7D6F;
+  --teal-bright: #3FA090;
+  --red:         #8B1A1A;
+  --border:      #2A2A2A;
+  --font:        "Courier New", Consolas, "Lucida Console", monospace;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ── SCROLLBAR ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 0; }
+
+/* ── WRAPPER ────────────────────────────────────────────────────────── */
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 28px 100px;
+}
+
+/* ── BACK LINK ──────────────────────────────────────────────────────── */
+.back {
+  display: inline-block;
+  color: var(--teal);
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 40px;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.back:hover { color: var(--teal-bright); border-bottom-color: var(--teal-bright); }
+
+/* ── PAGE TITLE ─────────────────────────────────────────────────────── */
+.page-title {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 36px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── SECTION ────────────────────────────────────────────────────────── */
+.section { margin-bottom: 52px; }
+.section + .section {
+  padding-top: 44px;
+  border-top: 1px solid #1C1C1C;
+}
+.section-heading {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 20px;
+}
+
+/* ── LINKS ──────────────────────────────────────────────────────────── */
+a {
+  color: var(--teal);
+  text-decoration: underline;
+  transition: color 0.15s;
+}
+a:hover { color: var(--teal-bright); }
+
+/* ── MOBILE ─────────────────────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .wrap { padding: 40px 18px 72px; }
+}

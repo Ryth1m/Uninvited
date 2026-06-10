@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>members — uninvited</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .members-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+    .members-table th {
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      padding: 9px 14px;
+      border: 1px solid var(--teal);
+      background: var(--bg2);
+      font-weight: normal;
+    }
+    .members-table td {
+      padding: 9px 14px;
+      border: 1px solid #232323;
+      vertical-align: middle;
+    }
+    .members-table tr:nth-child(odd)  td { background: var(--bg2); }
+    .members-table tr:nth-child(even) td { background: var(--bg);  }
+
+    td.role        { color: var(--soft); }
+    td.norole      { color: #404040; font-style: italic; }
+    td.removed     { color: var(--dim); }
+    td.lastseen    { color: var(--soft); }
+    td.owner-dash  { color: #333; }
+
+    .member-count {
+      font-size: 12px;
+      color: var(--dim);
+      font-style: italic;
+      margin-bottom: 36px;
+    }
+
+    .notes-heading {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .note {
+      font-size: 13px;
+      color: var(--soft);
+      line-height: 1.65;
+      padding: 5px 0 5px 14px;
+      border-left: 2px solid #222;
+      margin-bottom: 10px;
+    }
+    .note::before { content: "— "; color: var(--dim); }
+
+    @media (max-width: 520px) {
+      .members-table th,
+      .members-table td { padding: 7px 9px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html" class="back">← back</a>
+    <div class="page-title">members — at time of deletion</div>
+
+    <table class="members-table">
+      <thead>
+        <tr>
+          <th>USERNAME</th>
+          <th>ROLE</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>root__</td>
+          <td class="role">owner</td>
+          <td class="owner-dash">—</td>
+        </tr>
+        <tr>
+          <td>hollow_reed</td>
+          <td class="role">member</td>
+          <td class="lastseen">last seen: [months ago]</td>
+        </tr>
+        <tr>
+          <td>_sable</td>
+          <td class="role">member</td>
+          <td class="removed">removed</td>
+        </tr>
+        <tr>
+          <td>dusty_wren</td>
+          <td class="role">member</td>
+          <td class="removed">removed</td>
+        </tr>
+        <tr>
+          <td>nachtfalke</td>
+          <td class="role">member</td>
+          <td class="lastseen">last seen: [months ago]</td>
+        </tr>
+        <tr>
+          <td>0_007</td>
+          <td class="role">member</td>
+          <td class="removed">removed</td>
+        </tr>
+        <tr>
+          <td>gravelpit</td>
+          <td class="norole">(no role)</td>
+          <td class="removed">removed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="member-count">7 members at time of deletion. 1 remained at the end.</div>
+
+    <div class="notes-heading">NOTES</div>
+    <div class="note">hollow_reed has not logged into Minecraft since [date].</div>
+    <div class="note">gravelpit was never assigned a role.</div>
+    <div class="note">0_007's removal was not logged. no ban record exists.</div>
+    <div class="note">root__'s account has been deactivated.</div>
+  </div>
+</body>
+</html>

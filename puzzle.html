@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>puzzle 01 — uninvited</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .puzzle-heading {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .puzzle-flavour {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--soft);
+      margin-bottom: 32px;
+      line-height: 1.85;
+      max-width: 540px;
+    }
+    .cipher-block {
+      border: 1px solid var(--teal);
+      background: var(--bg2);
+      padding: 22px;
+      font-size: 14px;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      line-height: 2.1;
+      margin-bottom: 32px;
+      user-select: all;
+    }
+    .puzzle-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 380px;
+    }
+    .puzzle-input {
+      background: var(--bg2);
+      border: 1px solid #444;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      padding: 11px 14px;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+    .puzzle-input:focus { border-color: var(--teal); }
+    .puzzle-input::placeholder { color: #444; }
+
+    .puzzle-btn {
+      background: var(--bg);
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      font-family: var(--font);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 11px 24px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.15s, color 0.15s;
+      border-radius: 0;
+    }
+    .puzzle-btn:hover { background: var(--teal); color: var(--bg); }
+    .puzzle-btn:active { opacity: 0.8; }
+
+    .result {
+      margin-top: 24px;
+      font-size: 14px;
+      line-height: 2;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .result.show   { opacity: 1; }
+    .result.correct   { color: var(--text); }
+    .result.incorrect { color: var(--red); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html" class="back">← back</a>
+    <div class="page-title">puzzle 01 — the book</div>
+
+    <div class="puzzle-flavour">
+      "a book-and-quill was found in a chest at spawn. the coordinates inside were encoded.
+      someone wanted to make sure only the right person found what was at the end of them."
+    </div>
+
+    <div class="cipher-block">
+      GUR FUEVAR VF ORYBJ LBH.<br>
+      PBBEQVANGRF: K -313 L 11 M 762<br>
+      CNFFJBEQ: ERQJBBQ
+    </div>
+
+    <div class="puzzle-form" id="form">
+      <input
+        type="text"
+        class="puzzle-input"
+        id="answer"
+        placeholder="enter password"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="puzzle-btn" id="btn">SUBMIT</button>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function check() {
+      const val    = document.getElementById('answer').value.trim().toUpperCase();
+      const result = document.getElementById('result');
+
+      result.className = 'result';
+      result.textContent = '';
+
+      if (val === 'REDWOOD') {
+        document.getElementById('form').style.display = 'none';
+        result.className = 'result correct';
+        result.innerHTML =
+          'correct.<br><br>' +
+          'the shrine is at &nbsp; x: -313 &nbsp; y: 11 &nbsp; z: 762<br><br>' +
+          'hollow_reed built most of it.<br>' +
+          'root__ finished it after they left.<br>' +
+          'it has been down there for 847 days.';
+      } else {
+        result.className = 'result incorrect';
+        result.textContent = 'incorrect.';
+      }
+
+      /* tiny reflow trick to restart CSS transition */
+      void result.offsetWidth;
+      result.classList.add('show');
+    }
+
+    document.getElementById('btn').addEventListener('click', check);
+    document.getElementById('answer').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') check();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>archive — uninvited</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .content-area {
+      border-left: 1px solid var(--teal);
+      padding-left: 22px;
+    }
+
+    /* ── chat ── */
+    .chat-log { display: flex; flex-direction: column; gap: 0; }
+    .chat-msg  { padding: 5px 0; }
+    .chat-meta { font-size: 12px; color: var(--dim); margin-bottom: 2px; }
+    .chat-meta .uname { color: var(--soft); }
+    .chat-text { font-size: 14px; color: var(--text); }
+    .chat-silence {
+      margin-top: 18px;
+      font-size: 12px;
+      font-style: italic;
+      color: #333;
+      border-left: 2px solid #1E1E1E;
+      padding-left: 10px;
+    }
+
+    /* ── coords ── */
+    .coord-row {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 8px;
+      font-size: 13px;
+      padding: 4px 0;
+    }
+    .coord-name { color: var(--soft); }
+    .coord-val  { color: var(--dim);  font-variant-numeric: tabular-nums; }
+    .coord-row.redacted .coord-name { color: #3A3A3A; }
+    .coord-row.redacted .coord-val  { color: #2A2A2A; letter-spacing: 1px; }
+
+    /* ── builds ── */
+    .builds-note {
+      font-style: italic;
+      color: var(--soft);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .fname {
+      display: block;
+      font-size: 13px;
+      color: var(--dim);
+      padding: 2px 0;
+    }
+
+    /* ── rules ── */
+    .rules-box {
+      border: 1px solid var(--teal);
+      padding: 18px 22px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 2;
+    }
+    .rules-footer {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    @media (max-width: 520px) {
+      .coord-row { grid-template-columns: 150px 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html" class="back">← back</a>
+    <div class="page-title">archive — preserved server content</div>
+
+    <div class="content-area">
+
+      <!-- GENERAL -->
+      <div class="section">
+        <div class="section-heading">GENERAL — last messages</div>
+        <div class="chat-log">
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname">dusty_wren</span> &nbsp;·&nbsp; 03 Jan, 9:14pm</div>
+            <div class="chat-text">finally finished the east wing. looks way better than i thought it would</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname">nachtfalke</span> &nbsp;·&nbsp; 03 Jan, 9:31pm</div>
+            <div class="chat-text">oh nice, ill come look when im done with this mineshaft</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname">dusty_wren</span> &nbsp;·&nbsp; 03 Jan, 9:33pm</div>
+            <div class="chat-text">no rush, gonna start on the roof next anyway</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname">nachtfalke</span> &nbsp;·&nbsp; 03 Jan, 10:02pm</div>
+            <div class="chat-text">the east wing looks sick btw. love the spruce framing</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname">dusty_wren</span> &nbsp;·&nbsp; 03 Jan, 10:04pm</div>
+            <div class="chat-text">thank you :) still not sure about the windows though</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname">nachtfalke</span> &nbsp;·&nbsp; 03 Jan, 10:07pm</div>
+            <div class="chat-text">use glass panes not blocks, looks cleaner</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname">dusty_wren</span> &nbsp;·&nbsp; 04 Jan, 12:18pm</div>
+            <div class="chat-text">you were right about the panes. starting on the north wall, gonna need more oak logs</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname">nachtfalke</span> &nbsp;·&nbsp; 04 Jan, 12:44pm</div>
+            <div class="chat-text">i'll be on later to help finish the roof</div>
+          </div>
+          <div class="chat-silence">[ no further messages ]</div>
+        </div>
+      </div>
+
+      <!-- COORDS -->
+      <div class="section">
+        <div class="section-heading">COORDS — saved locations</div>
+        <div class="coord-row">
+          <span class="coord-name">reed's place</span>
+          <span class="coord-val">x: -847 &nbsp; y: 64 &nbsp; z: 1203</span>
+        </div>
+        <div class="coord-row">
+          <span class="coord-name">nachtfalke's tower</span>
+          <span class="coord-val">x: 312 &nbsp;&nbsp; y: 71 &nbsp; z: -88</span>
+        </div>
+        <div class="coord-row">
+          <span class="coord-name">dusty's farm</span>
+          <span class="coord-val">x: 0 &nbsp;&nbsp;&nbsp;&nbsp; y: 63 &nbsp; z: 44</span>
+        </div>
+        <div class="coord-row redacted">
+          <span class="coord-name">[REDACTED]</span>
+          <span class="coord-val">x: ████ &nbsp; y: ████ &nbsp; z: ████</span>
+        </div>
+      </div>
+
+      <!-- BUILDS -->
+      <div class="section">
+        <div class="section-heading">BUILDS — screenshots</div>
+        <div class="builds-note">"image files could not be recovered. filenames preserved."</div>
+        <span class="fname">hollow_reed_base_1.png</span>
+        <span class="fname">hollow_reed_base_2.png</span>
+        <span class="fname">hollow_reed_and_root_sunset.png</span>
+        <span class="fname">dusty_farm_progress.png</span>
+        <span class="fname">nachtfalke_tower_wip.png</span>
+      </div>
+
+      <!-- RULES -->
+      <div class="section">
+        <div class="section-heading">RULES — pinned</div>
+        <div class="rules-box">
+          be respectful.<br>
+          no griefing.<br>
+          ask before building near someone's stuff.
+          <div class="rules-footer">— posted by root__, &nbsp;[long ago date]</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
