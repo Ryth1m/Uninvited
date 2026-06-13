@@ -12,32 +12,60 @@
     }
 
     /* ── chat ── */
-    .chat-log { display: flex; flex-direction: column; gap: 0; }
-    .chat-msg  { padding: 5px 0; }
+    .chat-log { display: flex; flex-direction: column; }
+    .chat-msg  { padding: 6px 0; }
     .chat-meta { font-size: 12px; color: var(--dim); margin-bottom: 2px; }
-    .chat-meta .uname { color: var(--soft); }
+    .chat-meta .uname       { color: var(--soft); }
+    .chat-meta .uname.root  { color: #5A3A3A; }
+    .chat-meta .uname.reed  { color: #3A5A4A; }
     .chat-text { font-size: 14px; color: var(--text); }
+    .chat-text.root-msg { color: #6A5050; font-style: italic; }
     .chat-silence {
       margin-top: 18px;
       font-size: 12px;
       font-style: italic;
-      color: #333;
+      color: #2E2E2E;
       border-left: 2px solid #1E1E1E;
       padding-left: 10px;
     }
+    .chat-edited {
+      font-size: 11px;
+      color: #333;
+      margin-left: 8px;
+      font-style: italic;
+    }
+
+    /* ── log entries ── */
+    .log-entry {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 12px;
+      padding: 5px 0;
+      font-size: 13px;
+      border-bottom: 1px solid #181818;
+    }
+    .log-entry:last-child { border-bottom: none; }
+    .log-ts   { color: var(--dim); font-size: 12px; padding-top: 1px; }
+    .log-text { color: #6A5050; font-style: italic; }
 
     /* ── coords ── */
     .coord-row {
       display: grid;
-      grid-template-columns: 190px 1fr;
+      grid-template-columns: 200px 1fr;
       gap: 8px;
       font-size: 13px;
       padding: 4px 0;
     }
     .coord-name { color: var(--soft); }
-    .coord-val  { color: var(--dim);  font-variant-numeric: tabular-nums; }
-    .coord-row.redacted .coord-name { color: #3A3A3A; }
-    .coord-row.redacted .coord-val  { color: #2A2A2A; letter-spacing: 1px; }
+    .coord-val  { color: var(--dim); font-variant-numeric: tabular-nums; }
+    .coord-row.redacted .coord-name { color: #333; }
+    .coord-row.redacted .coord-val  { color: #252525; letter-spacing: 1px; }
+    .coord-note {
+      margin-top: 12px;
+      font-size: 12px;
+      font-style: italic;
+      color: #333;
+    }
 
     /* ── builds ── */
     .builds-note {
@@ -52,6 +80,7 @@
       color: var(--dim);
       padding: 2px 0;
     }
+    .fname.missing { color: #333; text-decoration: line-through; }
 
     /* ── rules ── */
     .rules-box {
@@ -66,16 +95,23 @@
       font-size: 12px;
       color: var(--dim);
     }
+    .rules-edited {
+      font-size: 11px;
+      color: var(--red);
+      margin-top: 6px;
+      font-style: italic;
+    }
 
     @media (max-width: 520px) {
-      .coord-row { grid-template-columns: 150px 1fr; }
+      .coord-row      { grid-template-columns: 150px 1fr; }
+      .log-entry      { grid-template-columns: 120px 1fr; gap: 8px; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <a href="index.html" class="back">← back</a>
-    <div class="page-title">archive — preserved server content</div>
+    <div class="page-title">archive — recovered discord content</div>
 
     <div class="content-area">
 
@@ -83,39 +119,85 @@
       <div class="section">
         <div class="section-heading">GENERAL — last messages</div>
         <div class="chat-log">
+
           <div class="chat-msg">
-            <div class="chat-meta"><span class="uname">dusty_wren</span> &nbsp;·&nbsp; 03 Jan, 9:14pm</div>
-            <div class="chat-text">finally finished the east wing. looks way better than i thought it would</div>
+            <div class="chat-meta"><span class="uname reed">hollow_reed</span> &nbsp;·&nbsp; 14 Feb, 11:43pm</div>
+            <div class="chat-text">finished the big spruce build. come see it when you're on</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname root">root__</span> &nbsp;·&nbsp; 14 Feb, 11:51pm</div>
+            <div class="chat-text root-msg">i saw. it looks good. the north wall especially.</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname reed">hollow_reed</span> &nbsp;·&nbsp; 14 Feb, 11:54pm</div>
+            <div class="chat-text">you actually logged on to look at it?</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname root">root__</span> &nbsp;·&nbsp; 14 Feb, 11:55pm</div>
+            <div class="chat-text root-msg">i log on every night.</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname reed">hollow_reed</span> &nbsp;·&nbsp; 15 Feb, 12:01am</div>
+            <div class="chat-text">we should do the underground section next. been thinking about it</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname root">root__</span> &nbsp;·&nbsp; 15 Feb, 12:03am</div>
+            <div class="chat-text root-msg">yes. i already started.</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-meta"><span class="uname reed">hollow_reed</span> &nbsp;·&nbsp; 15 Feb, 12:04am</div>
+            <div class="chat-text">of course you did lol. show me tomorrow</div>
+          </div>
+
+          <div class="chat-silence">[ hollow_reed did not log on tomorrow. this was their last message. ]</div>
+
+          <div style="height:24px"></div>
+
+          <div class="chat-msg">
+            <div class="chat-meta">
+              <span class="uname">dusty_wren</span> &nbsp;·&nbsp; 03 Jan, 9:14pm
+            </div>
+            <div class="chat-text">finally finished the east wing. looks way better than i thought</div>
           </div>
           <div class="chat-msg">
             <div class="chat-meta"><span class="uname">nachtfalke</span> &nbsp;·&nbsp; 03 Jan, 9:31pm</div>
-            <div class="chat-text">oh nice, ill come look when im done with this mineshaft</div>
-          </div>
-          <div class="chat-msg">
-            <div class="chat-meta"><span class="uname">dusty_wren</span> &nbsp;·&nbsp; 03 Jan, 9:33pm</div>
-            <div class="chat-text">no rush, gonna start on the roof next anyway</div>
-          </div>
-          <div class="chat-msg">
-            <div class="chat-meta"><span class="uname">nachtfalke</span> &nbsp;·&nbsp; 03 Jan, 10:02pm</div>
-            <div class="chat-text">the east wing looks sick btw. love the spruce framing</div>
-          </div>
-          <div class="chat-msg">
-            <div class="chat-meta"><span class="uname">dusty_wren</span> &nbsp;·&nbsp; 03 Jan, 10:04pm</div>
-            <div class="chat-text">thank you :) still not sure about the windows though</div>
-          </div>
-          <div class="chat-msg">
-            <div class="chat-meta"><span class="uname">nachtfalke</span> &nbsp;·&nbsp; 03 Jan, 10:07pm</div>
-            <div class="chat-text">use glass panes not blocks, looks cleaner</div>
-          </div>
-          <div class="chat-msg">
-            <div class="chat-meta"><span class="uname">dusty_wren</span> &nbsp;·&nbsp; 04 Jan, 12:18pm</div>
-            <div class="chat-text">you were right about the panes. starting on the north wall, gonna need more oak logs</div>
+            <div class="chat-text">nice, ill come look later</div>
           </div>
           <div class="chat-msg">
             <div class="chat-meta"><span class="uname">nachtfalke</span> &nbsp;·&nbsp; 04 Jan, 12:44pm</div>
             <div class="chat-text">i'll be on later to help finish the roof</div>
           </div>
           <div class="chat-silence">[ no further messages ]</div>
+        </div>
+      </div>
+
+      <!-- ROOT LOG -->
+      <div class="section">
+        <div class="section-heading">#LOG — root__'s entries</div>
+        <div class="callout">
+          this channel did not exist at first. root__ created it and began posting here
+          after gravelpit joined the server. the entries below are in chronological order.
+        </div>
+        <div style="height:20px"></div>
+        <div class="log-entry">
+          <span class="log-ts">[DATE OF EP.1]<br>~14 min session</span>
+          <span class="log-text">unknown user joined. username: gravelpit. no role assigned. explored spawn area. left without saying anything. origin of invite link unknown. _sable will be questioned.</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-ts">[DATE OF EP.2]<br>no session</span>
+          <span class="log-text">gravelpit did not return today. possibly a one-time visit. monitoring.</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-ts">[DATE OF EP.3]<br>~18 min session</span>
+          <span class="log-text">gravelpit returned. brought another user: 0_007. they built near spawn. i left a sign. gravelpit read it. asked "Whos they?" in chat. did not answer. they do not understand what this place is.</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-ts">[DATE OF EP.4]<br>~22 min session</span>
+          <span class="log-text">gravelpit came back alone. found the book. decoded the coordinates. went underground. found the shrine. he stayed down there for six minutes. i watched the whole time. he needs to leave.</span>
+        </div>
+        <div class="log-entry">
+          <span class="log-ts">[DATE OF EP.5+]<br>ongoing</span>
+          <span class="log-text">he keeps coming back. i don't understand why. i have tried everything. he keeps coming back.</span>
         </div>
       </div>
 
@@ -134,21 +216,33 @@
           <span class="coord-name">dusty's farm</span>
           <span class="coord-val">x: 0 &nbsp;&nbsp;&nbsp;&nbsp; y: 63 &nbsp; z: 44</span>
         </div>
+        <div class="coord-row">
+          <span class="coord-name">gravelpit's base</span>
+          <span class="coord-val">x: 143 &nbsp;&nbsp; y: 64 &nbsp; z: 29</span>
+        </div>
         <div class="coord-row redacted">
           <span class="coord-name">[REDACTED]</span>
           <span class="coord-val">x: ████ &nbsp; y: ████ &nbsp; z: ████</span>
+        </div>
+        <div class="coord-note">
+          one entry has been redacted. it was not redacted by whoever made this archive.
         </div>
       </div>
 
       <!-- BUILDS -->
       <div class="section">
         <div class="section-heading">BUILDS — screenshots</div>
-        <div class="builds-note">"image files could not be recovered. filenames preserved."</div>
-        <span class="fname">hollow_reed_base_1.png</span>
-        <span class="fname">hollow_reed_base_2.png</span>
-        <span class="fname">hollow_reed_and_root_sunset.png</span>
+        <div class="builds-note">"most image files could not be recovered. filenames preserved."</div>
+        <span class="fname missing">hollow_reed_base_1.png</span>
+        <span class="fname missing">hollow_reed_base_2.png</span>
+        <span class="fname missing">hollow_reed_and_root_sunset.png</span>
         <span class="fname">dusty_farm_progress.png</span>
         <span class="fname">nachtfalke_tower_wip.png</span>
+        <span class="fname missing">the_underground_section.png</span>
+        <div class="callout" style="margin-top:16px;">
+          hollow_reed's screenshots were deleted from the channel at some point.
+          the filenames were preserved in a local cache. the files themselves are gone.
+        </div>
       </div>
 
       <!-- RULES -->
@@ -159,6 +253,10 @@
           no griefing.<br>
           ask before building near someone's stuff.
           <div class="rules-footer">— posted by root__, &nbsp;[long ago date]</div>
+          <div class="rules-edited">
+            ⚠ this message was edited after gravelpit joined.<br>
+            original content could not be recovered.
+          </div>
         </div>
       </div>
 

@@ -34,8 +34,10 @@
     td.role        { color: var(--soft); }
     td.norole      { color: #404040; font-style: italic; }
     td.removed     { color: var(--dim); }
+    td.noban       { color: #3A3A3A; font-style: italic; }
     td.lastseen    { color: var(--soft); }
     td.owner-dash  { color: #333; }
+    td.highlight   { color: #5A3A3A; }
 
     .member-count {
       font-size: 12px;
@@ -55,11 +57,29 @@
       font-size: 13px;
       color: var(--soft);
       line-height: 1.65;
-      padding: 5px 0 5px 14px;
+      padding: 6px 0 6px 14px;
       border-left: 2px solid #222;
       margin-bottom: 10px;
     }
     .note::before { content: "— "; color: var(--dim); }
+    .note.warning { color: #5A3A3A; border-left-color: #3A1A1A; }
+    .note.warning::before { color: var(--red); }
+
+    .days-counter {
+      margin: 32px 0;
+      padding: 16px 20px;
+      border: 1px solid #222;
+      background: var(--bg2);
+      font-size: 13px;
+      color: var(--dim);
+    }
+    .days-counter .number {
+      font-size: 28px;
+      color: #3A3A3A;
+      display: block;
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
 
     @media (max-width: 520px) {
       .members-table th,
@@ -84,48 +104,56 @@
         <tr>
           <td>root__</td>
           <td class="role">owner</td>
-          <td class="owner-dash">—</td>
+          <td class="owner-dash">— present until deletion</td>
         </tr>
         <tr>
           <td>hollow_reed</td>
           <td class="role">member</td>
-          <td class="lastseen">last seen: [months ago]</td>
+          <td class="lastseen">offline — 847 days</td>
         </tr>
         <tr>
           <td>_sable</td>
           <td class="role">member</td>
-          <td class="removed">removed</td>
+          <td class="removed">removed — banned by root__</td>
         </tr>
         <tr>
           <td>dusty_wren</td>
           <td class="role">member</td>
-          <td class="removed">removed</td>
+          <td class="removed">removed — no record</td>
         </tr>
         <tr>
           <td>nachtfalke</td>
           <td class="role">member</td>
-          <td class="lastseen">last seen: [months ago]</td>
+          <td class="lastseen">offline — last seen [months ago]</td>
         </tr>
         <tr>
           <td>0_007</td>
           <td class="role">member</td>
-          <td class="removed">removed</td>
+          <td class="noban">removed — no ban log entry</td>
         </tr>
         <tr>
           <td>gravelpit</td>
           <td class="norole">(no role)</td>
-          <td class="removed">removed</td>
+          <td class="removed">removed — server deletion</td>
         </tr>
       </tbody>
     </table>
 
-    <div class="member-count">7 members at time of deletion. 1 remained at the end.</div>
+    <div class="member-count">7 members at time of deletion. 1 remained until the end.</div>
+
+    <div class="days-counter">
+      <span class="number">847</span>
+      days since hollow_reed's last login at time of server deletion.
+      root__ kept the server running for all of them.
+    </div>
 
     <div class="notes-heading">NOTES</div>
-    <div class="note">hollow_reed has not logged into Minecraft since [date].</div>
-    <div class="note">gravelpit was never assigned a role.</div>
-    <div class="note">0_007's removal was not logged. no ban record exists.</div>
-    <div class="note">root__'s account has been deactivated.</div>
+    <div class="note">hollow_reed stopped logging in without explanation. no goodbye message. no prior warning.</div>
+    <div class="note">gravelpit was never assigned a role. root__ never formally accepted them into the server.</div>
+    <div class="note warning">0_007's removal has no corresponding ban log entry. it is not known how or why they were removed.</div>
+    <div class="note">_sable was banned within 24 hours of gravelpit's first visit. root__ has not explained why.</div>
+    <div class="note">root__'s account was deactivated on the same day the server was deleted.</div>
+    <div class="note">nachtfalke logged on once near the end. typed one message. left immediately. the message has been omitted from this archive at their request.</div>
   </div>
 </body>
 </html>

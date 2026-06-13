@@ -6,13 +6,6 @@
   <title>puzzle 01 — uninvited</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .puzzle-heading {
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 16px;
-    }
     .puzzle-flavour {
       font-size: 13px;
       font-style: italic;
@@ -53,7 +46,6 @@
     }
     .puzzle-input:focus { border-color: var(--teal); }
     .puzzle-input::placeholder { color: #444; }
-
     .puzzle-btn {
       background: var(--bg);
       border: 1px solid var(--teal);
@@ -68,9 +60,8 @@
       transition: background 0.15s, color 0.15s;
       border-radius: 0;
     }
-    .puzzle-btn:hover { background: var(--teal); color: var(--bg); }
+    .puzzle-btn:hover  { background: var(--teal); color: var(--bg); }
     .puzzle-btn:active { opacity: 0.8; }
-
     .result {
       margin-top: 24px;
       font-size: 14px;
@@ -78,7 +69,7 @@
       opacity: 0;
       transition: opacity 1s ease;
     }
-    .result.show   { opacity: 1; }
+    .result.show      { opacity: 1; }
     .result.correct   { color: var(--text); }
     .result.incorrect { color: var(--red); font-size: 13px; }
   </style>
@@ -118,10 +109,8 @@
     function check() {
       const val    = document.getElementById('answer').value.trim().toUpperCase();
       const result = document.getElementById('result');
-
       result.className = 'result';
       result.textContent = '';
-
       if (val === 'REDWOOD') {
         document.getElementById('form').style.display = 'none';
         result.className = 'result correct';
@@ -135,8 +124,6 @@
         result.className = 'result incorrect';
         result.textContent = 'incorrect.';
       }
-
-      /* tiny reflow trick to restart CSS transition */
       void result.offsetWidth;
       result.classList.add('show');
     }

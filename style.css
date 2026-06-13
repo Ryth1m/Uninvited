@@ -9,7 +9,7 @@
   --text:        #E8E8E8;
   --soft:        #999999;
   --dim:         #666666;
-  --ghost:       #212121;
+  --ghost:       #1C1C1C;
   --teal:        #2E7D6F;
   --teal-bright: #3FA090;
   --red:         #8B1A1A;
@@ -29,7 +29,7 @@ html, body {
 /* ── SCROLLBAR ──────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 0; }
+::-webkit-scrollbar-thumb { background: #2A2A2A; }
 
 /* ── WRAPPER ────────────────────────────────────────────────────────── */
 .wrap {
@@ -74,6 +74,17 @@ html, body {
   text-transform: uppercase;
   color: var(--teal);
   margin-bottom: 20px;
+}
+
+/* ── CALLOUT ────────────────────────────────────────────────────────── */
+.callout {
+  border-left: 2px solid var(--teal);
+  padding: 10px 16px;
+  margin: 20px 0;
+  font-size: 13px;
+  color: var(--soft);
+  font-style: italic;
+  background: var(--bg2);
 }
 
 /* ── LINKS ──────────────────────────────────────────────────────────── */

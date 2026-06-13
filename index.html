@@ -10,8 +10,8 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      min-height: 100vh;
     }
-
     .landing-wrap {
       max-width: 620px;
       padding: 0 28px;
@@ -19,18 +19,16 @@
       width: 100%;
     }
 
-    /* typewriter */
+    /* ── typewriter ── */
     .tw-block { margin-bottom: 52px; }
-
     .tw-line {
       display: block;
       font-size: 15px;
       line-height: 2.1;
       color: var(--text);
       min-height: 1.8em;
-      white-space: pre;
+      white-space: pre-wrap;
     }
-
     #cursor {
       display: inline-block;
       width: 9px;
@@ -41,13 +39,9 @@
       animation: blink 1s step-end infinite;
     }
     #cursor.hidden { display: none; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-    @keyframes blink {
-      0%,100% { opacity: 1; }
-      50%      { opacity: 0; }
-    }
-
-    /* nav */
+    /* ── nav ── */
     .nav-links {
       display: flex;
       flex-direction: column;
@@ -60,7 +54,6 @@
       opacity: 1;
       pointer-events: all;
     }
-
     .nav-links a {
       color: var(--teal);
       text-decoration: none;
@@ -80,6 +73,15 @@
     }
     .nav-links a.locked:hover { color: #888; border-bottom-color: transparent; }
 
+    /* ── warning stamp ── */
+    .warning {
+      margin-top: 56px;
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      color: #2A2A2A;
+      line-height: 1.9;
+    }
+
     @media (max-width: 520px) {
       .landing-wrap { padding: 0 18px; }
       .tw-line { font-size: 13px; }
@@ -94,12 +96,21 @@
       <span class="tw-line" id="l3"></span>
       <span id="cursor"></span>
     </div>
+
     <nav class="nav-links" id="nav">
       <a href="archive.html">→ archive</a>
       <a href="members.html">→ members</a>
+      <a href="server.html">→ server log</a>
       <a href="puzzle.html">→ puzzle</a>
       <a href="locked.html" class="locked">→ [LOCKED]</a>
     </nav>
+
+    <div class="warning">
+      <!-- nearly invisible — easter egg for players who highlight or inspect -->
+      this archive was not authorised by root__.<br>
+      if you are reading this, root__ does not know it exists.<br>
+      keep it that way.
+    </div>
   </div>
 
   <script>
@@ -113,8 +124,8 @@
       document.getElementById('l2'),
       document.getElementById('l3')
     ];
-    const cursor  = document.getElementById('cursor');
-    const nav     = document.getElementById('nav');
+    const cursor = document.getElementById('cursor');
+    const nav    = document.getElementById('nav');
 
     let li = 0, ci = 0;
 

@@ -6,43 +6,38 @@
   <title>— uninvited</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .locked-main {
-      font-size: 15px;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .locked-sub {
-      font-size: 13px;
-      color: var(--dim);
-      margin-bottom: 36px;
-    }
-    .locked-hr {
-      border: none;
-      border-top: 1px solid #1E1E1E;
-      margin-bottom: 32px;
-    }
-    /* nearly invisible — visible when highlighted or screen brightness raised */
+    .locked-main { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    .locked-sub  { font-size: 13px; color: var(--dim);  margin-bottom: 36px; }
+    .locked-hr   { border: none; border-top: 1px solid #1E1E1E; margin-bottom: 32px; }
+
+    /* nearly invisible — easter egg when highlighted or brightness raised */
     .ghost-text {
       font-size: 13px;
-      color: #1C1C1C;
+      color: #1A1A1A;
       line-height: 2.3;
       user-select: text;
       cursor: default;
     }
+
+    /* page source easter egg comment is in the HTML below */
   </style>
 </head>
 <body>
+  <!-- if you're reading this: the key is in episode 11. don't tell anyone you found this. -->
   <div class="wrap">
-    <!-- intentionally no back link on this page -->
     <p class="locked-main">this page is not ready yet.</p>
     <p class="locked-sub">[check back after episode 11]</p>
     <hr class="locked-hr">
     <div class="ghost-text">
-      &gt; root__'s journal — recovered<br>
+      &gt; root__'s journal &mdash; recovered<br>
       &gt; access: restricted<br>
       &gt; decryption key: pending<br>
       <br>
-      [this content will be unlocked when the key is found]
+      [this content will be unlocked when the key is found]<br>
+      <br>
+      847 days.<br>
+      he kept it running for 847 days.<br>
+      and then someone walked in.
     </div>
   </div>
 </body>

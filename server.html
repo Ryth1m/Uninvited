@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>server log — uninvited</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .t-entry {
+      display: grid;
+      grid-template-columns: 10px 1fr;
+      gap: 0 20px;
+      padding-bottom: 36px;
+      position: relative;
+    }
+    .t-entry:last-child { padding-bottom: 0; }
+
+    .t-spine {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+    .t-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+    .t-dot.dim    { background: #2A2A2A; }
+    .t-dot.red    { background: var(--red); }
+    .t-line {
+      width: 1px;
+      flex: 1;
+      background: #222;
+      margin-top: 4px;
+      min-height: 20px;
+    }
+
+    .t-body { padding-bottom: 4px; }
+    .t-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 6px;
+    }
+    .t-title {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .t-desc {
+      font-size: 13px;
+      color: var(--soft);
+      line-height: 1.75;
+    }
+    .t-desc.root-voice {
+      color: #6A5050;
+      font-style: italic;
+    }
+
+    /* ── server info box ── */
+    .server-info {
+      border: 1px solid #2A2A2A;
+      background: var(--bg2);
+      padding: 20px 22px;
+      margin-bottom: 48px;
+      font-size: 13px;
+    }
+    .info-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px solid #1A1A1A;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-key   { color: var(--dim); }
+    .info-val   { color: var(--soft); }
+    .info-val.offline { color: var(--red); }
+    .info-val.online  { color: var(--teal); }
+
+    /* ── sign quote ── */
+    .sign-quote {
+      border: 1px solid #2A2A2A;
+      background: var(--bg2);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--soft);
+      font-style: italic;
+    }
+    .sign-quote .sign-loc {
+      font-size: 11px;
+      color: var(--dim);
+      margin-bottom: 8px;
+      font-style: normal;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 520px) {
+      .info-row { grid-template-columns: 110px 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html" class="back">← back</a>
+    <div class="page-title">server log — minecraft world record</div>
+
+    <!-- server info -->
+    <div class="server-info">
+      <div class="info-row">
+        <span class="info-key">server name</span>
+        <span class="info-val">reedworld</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">version</span>
+        <span class="info-val">java 1.8.9</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">address</span>
+        <span class="info-val">[REDACTED].aternos.me</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">status</span>
+        <span class="info-val offline">offline — permanently</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">uptime</span>
+        <span class="info-val">kept online every day for 847 days after hollow_reed's last login</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">max players</span>
+        <span class="info-val">5 &nbsp;·&nbsp; whitelist enabled</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">original owner</span>
+        <span class="info-val">root__ &amp; hollow_reed (jointly built)</span>
+      </div>
+    </div>
+
+    <!-- timeline -->
+    <div class="section-heading">TIMELINE</div>
+    <div class="timeline">
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body">
+          <div class="t-label">years ago</div>
+          <div class="t-title">the server is created</div>
+          <div class="t-desc">
+            root__ and hollow_reed build the server together. it is entirely private —
+            no public invite link, no listing. just the two of them.
+            over time they construct a spawn area, a shared base, farms, and a large
+            spruce build hollow_reed designed. root__ starts work on something underground.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot dim"></div><div class="t-line"></div></div>
+        <div class="t-body">
+          <div class="t-label">847 days before deletion</div>
+          <div class="t-title">hollow_reed logs off for the last time</div>
+          <div class="t-desc">
+            no explanation. no goodbye. their last message in #general was
+            "show me tomorrow." root__ kept the server running the next day.
+            and the day after. and every day after that.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot dim"></div><div class="t-line"></div></div>
+        <div class="t-body">
+          <div class="t-label">between then and now</div>
+          <div class="t-title">root__ finishes the underground section alone</div>
+          <div class="t-desc root-voice">
+            "i finished it. i know you're not here to see it. i finished it anyway."
+          </div>
+          <div class="t-desc" style="margin-top:10px;">
+            the structure below the server — later found by gravelpit — was built
+            entirely by root__ after hollow_reed left. it is not known how long it took.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body">
+          <div class="t-label">episode 1</div>
+          <div class="t-title">gravelpit joins for the first time</div>
+          <div class="t-desc">
+            sent the server IP by _sable with no context. gravelpit joins, explores for
+            14 minutes, and leaves. root__ notices immediately.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body">
+          <div class="t-label">episode 3</div>
+          <div class="t-title">the first sign</div>
+          <div class="t-desc">
+            gravelpit returns with 0_007. they begin building a small house near spawn.
+            root__ leaves a sign on the interior wall of the house while they are building it.
+          </div>
+          <div class="sign-quote">
+            <div class="sign-loc">SIGN — inside 0_007's house, north interior wall</div>
+            "they would have hated this."
+          </div>
+          <div class="t-desc">
+            gravelpit reads the sign. types "Whos they?" in chat. root__ does not answer.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body">
+          <div class="t-label">episode 4 onwards</div>
+          <div class="t-title">gravelpit finds the shrine</div>
+          <div class="t-desc">
+            the encoded coordinates lead underground. gravelpit finds the room
+            root__ built for hollow_reed. root__ watches him explore it for six minutes
+            before gravelpit logs off.
+          </div>
+          <div class="sign-quote">
+            <div class="sign-loc">SIGN — shrine entrance, facing the door</div>
+            "you weren't supposed to find this."
+          </div>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot dim"></div><div class="t-line"></div></div>
+        <div class="t-body">
+          <div class="t-label">between episodes</div>
+          <div class="t-title">0_007 disappears</div>
+          <div class="t-desc">
+            0_007 stops appearing on the server without warning. no ban message.
+            no record of removal. their house near spawn remains untouched.
+            their chests are still full.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot red"></div><div class="t-line"></div></div>
+        <div class="t-body">
+          <div class="t-label">episode 15 — final session</div>
+          <div class="t-title">the server deletes itself</div>
+          <div class="t-desc">
+            gravelpit logs on for the last time. the world begins resetting in real time —
+            builds disappearing chunk by chunk. the shrine is the last structure standing.
+            a final command block message fires, addressed to gravelpit by username.
+            the server goes offline. connection refused.
+            it has not come back online since.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-spine"><div class="t-dot dim"></div></div>
+        <div class="t-body">
+          <div class="t-label">one week later</div>
+          <div class="t-title">hollow_reed</div>
+          <div class="t-desc">
+            hollow_reed's account was seen online briefly at the coordinates where the shrine used to be.
+            the chunk was flat. they stood there for 90 seconds.
+            then they left.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
